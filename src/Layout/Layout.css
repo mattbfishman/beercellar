@@ -1,0 +1,28 @@
+.column{
+    width: 100%;
+    /* background: red; */
+    display: flex;
+    flex-flow: column;
+    min-height: 95%;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+.column-item{
+    flex: 1 1 0;
+    display: flex;
+    /* background: blue; */
+}
+
+.form-container{
+    width: 50%;
+    background: #ffe9c1;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 3px #ccc;
+}
+
+.form{
+    display: grid;
+    padding: 20px;
+}
