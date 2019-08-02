@@ -6,12 +6,6 @@ import Button from '@material-ui/core/Button';
 import FormConfig from '../Configs/Form.js';
 import './Layout.css';
 
-var titles = [
-  {label: 'Treehouse Brewing Company', value:0},
-  {label: 'Founders Brewing Company', value:1},
-  {label: 'Kane Brewing', value:2},
-]
-
 class Form extends Component {
   render(props) {
     var me = this,
@@ -25,16 +19,19 @@ class Form extends Component {
               {Object.keys(formType).map(function(key) {
                   var item = formType && formType[key],
                       type = item && item["type"],
-                      label = item && item["label"];
+                      label = item && item["label"],
+                      sort = item && item["sort"];
                   if(type === "select"){
                     var titles = item && item["titles"] || [],
                         helpText = item && item["helpText"] || '';
-                    return <SelectField key={key} titles={titles} helpText={helpText} label={label}/>;
+                    return <SelectField key={key} sort={sort} titles={titles} helpText={helpText} label={label}/>;
                   }
                   else if(type === "number"){
-                    var max = item && item["max"] || 0,
-                        min = item && item["min"] || 0;
-                    return <NumberField key={key} label={label} min={min} max={max}/>;
+                    var max     = item && item["max"] || 0,
+                        min     = item && item["min"] || 0,
+                        defaultVal = item && item["default"] || 1;
+
+                    return <NumberField key={key} label={label} min={min} max={max} defaultVal={defaultVal}/>;
                   }
                   else if(type === "text"){
                     return <TextField key={key}  label={label}/>
@@ -42,7 +39,7 @@ class Form extends Component {
                   else if(type === "button"){
                     var color = item && item["color"] || false;
                     return (
-                      <Button variant="contained" color={color}>
+                      <Button key={key} variant="contained" color={color}>
                         {label}
                       </Button>
                     );

@@ -6,7 +6,7 @@ class TextField extends Component {
   constructor(props){
     super(props);
     this.state = {
-      amount: props.min
+      amount: props.defaultVal
     };
   }
 
@@ -20,12 +20,13 @@ class TextField extends Component {
         min    = props && props.min,
         max    = props && props.max;
 
-        var inputProps = {
-            inputProps: 
-                {min: min,
-                max: max}
-        }
-        // console.log(inputProps);
+    var inputProps = {
+      inputProps: {
+        min: min,
+        max: max
+      }
+    };
+
     return (
         <Field
           label={label}

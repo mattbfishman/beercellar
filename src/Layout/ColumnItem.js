@@ -7,12 +7,12 @@ class ColumnItem extends Component {
 
   render() {
     var props = this.props,
-        type  = props && props.type,
-        button;
+        type  = props && props.type;
+        // button;
 
-        if(type === "a"){
-            button = <Button type={"add"} label={"Add To Cellar"}/>;
-        }
+        // if(type === "a"){
+        //     button = <Button type={"add"} label={"Add To Cellar"}/>;
+        // }
     return (
       <div className="column-item">
         <Form type="beerForm"/>

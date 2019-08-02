@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Field from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import orderBy from 'lodash/orderBy';
 
 import './Elements.css';
 
@@ -22,7 +23,14 @@ class SelectField extends Component {
     var props = this.props,
         helperText  = props && props.helpText,
         label       = props && props.label,
-        titles      = props && props.titles;
+        titles      = props && props.titles,
+        sort        = props && props.sort;
+
+    if(sort){
+      if(sort === "alpha"){
+        titles = orderBy(titles, ['label'],['asc']); // Use Lodash to sort array by 'name'
+      }
+    }
         
     return (
         <Field
