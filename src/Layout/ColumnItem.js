@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import Button from '../Elements/Button';
 import Form from './Form';
+import Table from '../Elements/TableElement';
 import './Layout.css';
 
 class ColumnItem extends Component {
 
   render() {
     var props = this.props,
-        type  = props && props.type;
-        // button;
+        type = props && props.type,
+        ret;
 
-        // if(type === "a"){
-        //     button = <Button type={"add"} label={"Add To Cellar"}/>;
-        // }
+    if(type === "form"){
+      var formType  = props && props.formType;
+        ret = <Form type={formType}/>;
+    }
+    else if(type == "table"){
+        ret = <Table/>;
+    }
+
     return (
       <div className="column-item">
-        <Form type="beerForm"/>
-        {/* {button} */}
+        {ret}
       </div>
     );
   }

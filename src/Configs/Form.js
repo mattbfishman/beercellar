@@ -42,7 +42,7 @@ export default {
         },
         {
             type:"button",
-            label:"Add",
+            label:"Add To Cellar",
             color:"primary"
         }
     ]

@@ -10,8 +10,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Navbar/>
-      <Route path="/add" component={OneColumn} />
+        <Navbar/>
+        <Route path="/add" render={()=>
+          <OneColumn layout="a" type="form" formType="beerForm"/>} 
+        />
+        <Route path="/mycellar" render={()=>
+          <OneColumn layout="a" type="table" formType="cellarTable"/>} 
+        />
       </div>
     );
   }
