@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Clear, Dashboard } from '@material-ui/icons';
 import NavbarConfig from '../Configs/Navbar.js';
+import { NavLink } from "react-router-dom";
 
 import './Navbar.css';
 
@@ -28,15 +29,20 @@ class Navbar extends Component {
         {show ? (
           <div className="navbar">
             <div className="navbar-header">
-            {/* <h2>Beer Cellar</h2> */}
-            <Clear className="navbar-close" onClick={this.toggleShow}>close</Clear>
+              <div className="navbar-header-col-a">
+                <h1 className="navbar-title">Beer Cellar</h1>
+              </div>
+              <div className="navbar-header-col-b">
+                <Clear className="navbar-close" onClick={this.toggleShow}>close</Clear>
+              </div>
             </div>
             <div className="navbar-body">
               {Object.keys(navType).map(function(key) {
                 var item = navType && navType[key],
-                    label = item && item["label"];
+                    label = item && item["label"],
+                    route = item && item["route"];
                 
-                return <div key={key} className="navbar-item">{label}</div>
+                return <div key={key} className="navbar-item"><NavLink to={route}>{label}</NavLink></div>
               })}
             </div>
           </div>

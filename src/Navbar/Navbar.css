@@ -6,6 +6,7 @@
     float: left;
     position: absolute;
     z-index: 2;
+    overflow: hidden;
 }
 
 .navbar-header{
@@ -18,15 +19,11 @@
 
 .navbar-open,
 .navbar-close{
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .navbar-close{
     float: right;
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
     margin-right: 10px;
     border: 2px solid #d8d8d8;
     color: #d8d8d8;
@@ -60,10 +57,55 @@
     height: 95%;
     top: 5%;
     position: relative;
+    margin-top: 20px;
 }
+
 
 .navbar-item{
     color: #fdfff4;
+    margin: 20px;
+    border-top: 1px solid #fdfff4;
+    border-bottom: 1px solid #fdfff4;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar-item:hover{
+    color: #d6d6d5;
+    border-color: #d6d6d5;
+    cursor: pointer;
+}
+
+.navbar-close,
+.navbar-title{
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.navbar-title{
+    color: #fdfff4;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 10px;
+}
+
+
+.navbar-header-col-a,
+.navbar-header-col-b{
+    float: left;
+    height: 100%;
+}
+
+.navbar-header-col-a{
+    width: 80%;
+
+}
+
+.navbar-header-col-b{
+    width: 20%;
 }
 
 @media only screen and (max-width: 1200px) {
